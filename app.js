@@ -3,7 +3,7 @@
 // ==========================================
 const AIO_USERNAME = "Rodolfoo13";
 const PREFIJO = "aio_";
-const SECRETO = "lCEa54hiDweU9IqEpv78E62R3AVZ";
+const SECRETO = "Vsgu44lPkU5kpKWqGOZemnQPPTa1";
 const AIO_KEY = PREFIJO + SECRETO;
 
 const FEED_TEMP = AIO_USERNAME + "/feeds/temperatura";

@@ -30,10 +30,10 @@
             width: 100%;
             height: 100%;
             background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Escudo_Universidad_Nacional_de_Piura.png/800px-Escudo_Universidad_Nacional_de_Piura.png');
-            background-size: contain;
+            background-size: 400px 400px;
             background-position: center;
             background-repeat: no-repeat;
-            opacity: 0.08;
+            opacity: 0.15;
             z-index: 0;
         }
 
@@ -354,7 +354,7 @@
             </div>
             <div class="status-badge" id="status-badge">
                 <span class="status-dot"></span>
-                CONECTANDO...
+                DESCONECTADO
             </div>
         </div>
 
@@ -650,64 +650,86 @@
             }
         });
 
-        // Conexión MQTT (simulada - reemplazar con tu broker real)
-        function conectarMQTT() {
-            const statusBadge = document.getElementById('status-badge');
+        // AQUÍ DEBES CONFIGURAR TU CONEXIÓN MQTT REAL
+        // Ejemplo básico de cómo conectar:
+        /*
+        const client = new Paho.MQTT.Client("TU_BROKER", TU_PUERTO, "clientId_" + parseInt(Math.random() * 100));
+        
+        client.onConnectionLost = function(responseObject) {
+            if (responseObject.errorCode !== 0) {
+                console.log("Conexión perdida: " + responseObject.errorMessage);
+                document.getElementById('status-badge').classList.remove('connected');
+                document.getElementById('status-badge').innerHTML = '<span class="status-dot"></span>DESCONECTADO';
+            }
+        };
+
+        client.onMessageArrived = function(message) {
+            const topic = message.destinationName;
+            const payload = message.payloadString;
             
-            // Simulación de datos (reemplazar con tu lógica MQTT real)
-            setTimeout(() => {
-                statusBadge.classList.add('connected');
-                statusBadge.innerHTML = '<span class="status-dot"></span>CONECTADO';
+            // Procesar según el topic
+            if (topic.includes("temperatura")) {
+                actualizarTemperatura(parseFloat(payload));
+            } else if (topic.includes("humedad")) {
+                actualizarHumedad(parseFloat(payload));
+            } else if (topic.includes("luminosidad")) {
+                actualizarLuminosidad(payload);
+            }
+        };
+
+        client.connect({
+            onSuccess: function() {
+                console.log("Conectado al broker MQTT");
+                document.getElementById('status-badge').classList.add('connected');
+                document.getElementById('status-badge').innerHTML = '<span class="status-dot"></span>CONECTADO';
                 
-                // Actualizar datos cada 2 segundos
-                setInterval(() => {
-                    actualizarDatos();
-                }, 2000);
-            }, 2000);
-        }
+                // Suscribirse a los topics
+                client.subscribe("tu/topic/temperatura");
+                client.subscribe("tu/topic/humedad");
+                client.subscribe("tu/topic/luminosidad");
+            }
+        });
+        */
 
-        function actualizarDatos() {
-            // Generar datos aleatorios (reemplazar con datos MQTT reales)
-            const temp = (Math.random() * 10 + 25).toFixed(1);
-            const hum = (Math.random() * 20 + 60).toFixed(1);
-            const lum = Math.random() > 0.5 ? 'Día' : 'Noche';
-
-            // Actualizar valores
-            document.getElementById('temp-value').textContent = temp;
-            document.getElementById('temp-mini').textContent = temp;
-            document.getElementById('hum-value').textContent = hum;
-            document.getElementById('hum-mini').textContent = hum;
-            document.getElementById('lum-value').textContent = lum;
-            document.getElementById('lum-mini').textContent = lum;
-
-            // Actualizar gráficos
-            const tiempo = new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
+        // Funciones para actualizar datos cuando lleguen del MQTT
+        function actualizarTemperatura(valor) {
+            document.getElementById('temp-value').textContent = valor.toFixed(1);
+            document.getElementById('temp-mini').textContent = valor.toFixed(1);
             
+            const tiempo = new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
             if (tempChart.data.labels.length > 10) {
                 tempChart.data.labels.shift();
                 tempChart.data.datasets[0].data.shift();
             }
             tempChart.data.labels.push(tiempo);
-            tempChart.data.datasets[0].data.push(temp);
+            tempChart.data.datasets[0].data.push(valor);
             tempChart.update();
+            
+            tempPieChart.data.datasets[0].data = [valor, 50 - valor];
+            tempPieChart.update();
+        }
 
+        function actualizarHumedad(valor) {
+            document.getElementById('hum-value').textContent = valor.toFixed(1);
+            document.getElementById('hum-mini').textContent = valor.toFixed(1);
+            
+            const tiempo = new Date().toLocaleTimeString('es-ES', { hour: '2-digit', minute: '2-digit' });
             if (humChart.data.labels.length > 10) {
                 humChart.data.labels.shift();
                 humChart.data.datasets[0].data.shift();
             }
             humChart.data.labels.push(tiempo);
-            humChart.data.datasets[0].data.push(hum);
+            humChart.data.datasets[0].data.push(valor);
             humChart.update();
-
-            tempPieChart.data.datasets[0].data = [temp, 50 - temp];
-            tempPieChart.update();
-
-            humPieChart.data.datasets[0].data = [hum, 100 - hum];
+            
+            humPieChart.data.datasets[0].data = [valor, 100 - valor];
             humPieChart.update();
         }
 
-        // Iniciar conexión
-        conectarMQTT();
+        function actualizarLuminosidad(valor) {
+            document.getElementById('lum-value').textContent = valor;
+            document.getElementById('lum-mini').textContent = valor;
+        }
     </script>
 </body>
 </html>

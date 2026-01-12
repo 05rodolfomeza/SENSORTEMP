@@ -20,12 +20,11 @@ body {
     width: 100%;
     height: 100%;
     z-index: 0;
-    background: 
-        linear-gradient(rgba(10, 14, 39, 0.5), rgba(10, 14, 39, 0.7)),
-        url('data:image/svg+xml;utf8,<svg width="1920" height="1080" xmlns="http://www.w3.org/2000/svg"><defs><linearGradient id="sky" x1="0%" y1="0%" x2="0%" y2="100%"><stop offset="0%" style="stop-color:%2387CEEB;stop-opacity:1" /><stop offset="100%" style="stop-color:%234682B4;stop-opacity:1" /></linearGradient></defs><rect width="1920" height="1080" fill="url(%23sky)"/><circle cx="200" cy="150" r="80" fill="%23FFD700" opacity="0.8"/><polygon points="0,1080 200,600 400,700 600,500 800,650 1000,550 1200,700 1400,600 1600,750 1800,650 1920,800 1920,1080" fill="%232F4F4F"/><polygon points="0,1080 150,700 350,800 550,650 750,750 950,600 1150,800 1350,700 1550,850 1750,750 1920,900 1920,1080" fill="%23556B2F"/><polygon points="0,1080 100,800 300,900 500,750 700,850 900,700 1100,900 1300,800 1500,950 1700,850 1920,1000 1920,1080" fill="%236B8E23"/></svg>');
-    background-size: cover;
+    background-image: url('https://upload.wikimedia.org/wikipedia/commons/thumb/3/3f/Escudo_Universidad_Nacional_de_Piura.png/800px-Escudo_Universidad_Nacional_de_Piura.png');
+    background-size: 400px 400px;
     background-position: center;
     background-repeat: no-repeat;
+    opacity: 0.15;
 }
 
 .grid-overlay {
@@ -35,8 +34,8 @@ body {
     width: 100%;
     height: 100%;
     background-image: 
-        linear-gradient(rgba(59, 130, 246, 0.03) 1px, transparent 1px),
-        linear-gradient(90deg, rgba(59, 130, 246, 0.03) 1px, transparent 1px);
+        linear-gradient(rgba(0, 191, 255, 0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(0, 191, 255, 0.03) 1px, transparent 1px);
     background-size: 50px 50px;
     z-index: 0;
 }
@@ -56,10 +55,10 @@ body {
     padding: 25px 40px;
     background: rgba(15, 23, 42, 0.6);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(0, 191, 255, 0.3);
     border-radius: 20px;
     margin-bottom: 30px;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 191, 255, 0.2);
 }
 
 .logo-section {
@@ -69,7 +68,7 @@ body {
 }
 
 .title-group h1 {
-    color: #ffffff;
+    color: #00bfff;
     font-size: 1.8em;
     font-weight: 800;
     letter-spacing: -0.5px;
@@ -87,10 +86,10 @@ body {
     align-items: center;
     gap: 10px;
     padding: 12px 24px;
-    background: rgba(34, 197, 94, 0.1);
-    border: 1px solid rgba(34, 197, 94, 0.3);
+    background: rgba(0, 191, 255, 0.1);
+    border: 1px solid rgba(0, 191, 255, 0.3);
     border-radius: 50px;
-    color: #22c55e;
+    color: #00bfff;
     font-weight: 600;
     font-size: 0.95em;
 }
@@ -98,10 +97,10 @@ body {
 .status-dot {
     width: 10px;
     height: 10px;
-    background: #22c55e;
+    background: #00bfff;
     border-radius: 50%;
     animation: pulse-dot 2s ease-in-out infinite;
-    box-shadow: 0 0 15px #22c55e;
+    box-shadow: 0 0 15px #00bfff;
 }
 
 @keyframes pulse-dot {
@@ -125,11 +124,11 @@ body {
 .clock-card {
     background: rgba(15, 23, 42, 0.8);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(0, 191, 255, 0.3);
     border-radius: 20px;
     padding: 40px 30px;
     text-align: center;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 191, 255, 0.2);
     position: relative;
     overflow: hidden;
 }
@@ -141,7 +140,7 @@ body {
     left: -50%;
     width: 200%;
     height: 200%;
-    background: radial-gradient(circle, rgba(59, 130, 246, 0.1) 0%, transparent 70%);
+    background: radial-gradient(circle, rgba(0, 191, 255, 0.1) 0%, transparent 70%);
     animation: rotate 20s linear infinite;
 }
 
@@ -154,13 +153,13 @@ body {
     width: 120px;
     height: 120px;
     margin: 0 auto 20px;
-    filter: drop-shadow(0 4px 20px rgba(59, 130, 246, 0.4));
+    filter: drop-shadow(0 4px 20px rgba(0, 191, 255, 0.4));
     position: relative;
     z-index: 2;
 }
 
 .location {
-    color: #60a5fa;
+    color: #00bfff;
     font-size: 1em;
     font-weight: 600;
     margin-bottom: 25px;
@@ -176,7 +175,7 @@ body {
     font-variant-numeric: tabular-nums;
     letter-spacing: 2px;
     margin-bottom: 10px;
-    text-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+    text-shadow: 0 0 30px rgba(0, 191, 255, 0.5);
     position: relative;
     z-index: 2;
 }
@@ -198,20 +197,20 @@ body {
 .stat-item {
     background: rgba(15, 23, 42, 0.8);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(0, 191, 255, 0.3);
     border-radius: 15px;
     padding: 20px;
     display: flex;
     align-items: center;
     justify-content: space-between;
     transition: all 0.3s ease;
-    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 4px 20px rgba(0, 191, 255, 0.2);
 }
 
 .stat-item:hover {
     transform: translateX(5px);
-    border-color: rgba(59, 130, 246, 0.5);
-    box-shadow: 0 8px 30px rgba(59, 130, 246, 0.3);
+    border-color: rgba(0, 191, 255, 0.5);
+    box-shadow: 0 8px 30px rgba(0, 191, 255, 0.3);
 }
 
 .stat-content {
@@ -228,13 +227,13 @@ body {
 }
 
 .stat-value-inline {
-    color: #ffffff;
+    color: #00bfff;
     font-size: 1.8em;
     font-weight: 800;
 }
 
 .stat-unit-inline {
-    color: #60a5fa;
+    color: #00bfff;
     font-size: 0.9em;
     font-weight: 600;
     margin-left: 5px;
@@ -249,22 +248,22 @@ body {
 .sensor-module {
     background: rgba(15, 23, 42, 0.8);
     backdrop-filter: blur(20px);
-    border: 1px solid rgba(59, 130, 246, 0.2);
+    border: 1px solid rgba(0, 191, 255, 0.3);
     border-radius: 20px;
     overflow: hidden;
-    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 8px 32px rgba(0, 191, 255, 0.2);
     transition: all 0.3s ease;
 }
 
 .sensor-module:hover {
-    border-color: rgba(59, 130, 246, 0.4);
-    box-shadow: 0 12px 40px rgba(59, 130, 246, 0.2);
+    border-color: rgba(0, 191, 255, 0.5);
+    box-shadow: 0 12px 40px rgba(0, 191, 255, 0.3);
 }
 
 .module-header {
     padding: 30px 35px;
-    background: linear-gradient(135deg, rgba(30, 58, 138, 0.4) 0%, rgba(30, 64, 175, 0.4) 100%);
-    border-bottom: 1px solid rgba(59, 130, 246, 0.2);
+    background: linear-gradient(135deg, rgba(0, 191, 255, 0.2) 0%, rgba(0, 212, 255, 0.2) 100%);
+    border-bottom: 1px solid rgba(0, 191, 255, 0.2);
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -296,15 +295,15 @@ body {
 
 .big-value {
     font-size: 3.5em;
-    color: #ffffff;
+    color: #00bfff;
     font-weight: 900;
     line-height: 1;
-    text-shadow: 0 0 30px rgba(59, 130, 246, 0.5);
+    text-shadow: 0 0 30px rgba(0, 191, 255, 0.5);
 }
 
 .big-unit {
     font-size: 1.2em;
-    color: #60a5fa;
+    color: #00bfff;
     font-weight: 700;
     margin-left: 8px;
 }
@@ -315,9 +314,9 @@ body {
     gap: 5px;
     margin-top: 8px;
     padding: 5px 12px;
-    background: rgba(34, 197, 94, 0.1);
+    background: rgba(0, 191, 255, 0.1);
     border-radius: 20px;
-    color: #22c55e;
+    color: #00bfff;
     font-size: 0.8em;
     font-weight: 600;
 }
@@ -334,7 +333,7 @@ body {
 
 .chart-box {
     background: rgba(30, 41, 59, 0.4);
-    border: 1px solid rgba(59, 130, 246, 0.15);
+    border: 1px solid rgba(0, 191, 255, 0.2);
     border-radius: 15px;
     padding: 25px;
     transition: all 0.3s ease;
@@ -342,7 +341,7 @@ body {
 
 .chart-box:hover {
     background: rgba(30, 41, 59, 0.6);
-    border-color: rgba(59, 130, 246, 0.3);
+    border-color: rgba(0, 191, 255, 0.3);
 }
 
 .chart-header {
